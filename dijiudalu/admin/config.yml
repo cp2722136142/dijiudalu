@@ -1,0 +1,80 @@
+backend:
+  name: github
+  repo: cp2722136142/dijiudalu
+  branch: main
+
+local_backend: true
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "maps"
+    label: "Maps"
+    files:
+      - label: "Maps Data"
+        name: "maps"
+        file: "data/maps.json"
+        fields:
+          - label: "Map List"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Dimension", name: "dimension", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
+
+  - name: "bosses"
+    label: "Bosses"
+    files:
+      - label: "Bosses Data"
+        name: "bosses"
+        file: "data/bosses.json"
+        fields:
+          - label: "Boss List"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Map ID", name: "mapId", widget: "string" }
+              - { label: "Level", name: "level", widget: "string" }
+              - label: "Position"
+                name: "position"
+                widget: "object"
+                fields:
+                  - { label: "X", name: "x", widget: "number", value_type: "int" }
+                  - { label: "Y", name: "y", widget: "number", value_type: "int" }
+                  - { label: "Z", name: "z", widget: "number", value_type: "int" }
+              - label: "Ring IDs"
+                name: "rings"
+                widget: "list"
+                field: { label: "Ring ID", name: "ring_id", widget: "string" }
+
+  - name: "rings"
+    label: "Rings"
+    files:
+      - label: "Rings Data"
+        name: "rings"
+        file: "data/rings.json"
+        fields:
+          - label: "Ring List"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.id}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Boss ID", name: "bossId", widget: "string" }
+              - { label: "Years", name: "years", widget: "number", value_type: "int" }
+              - label: "Attributes"
+                name: "attributes"
+                widget: "list"
+                field: { label: "Attribute", name: "attribute", widget: "string" }
+              - label: "Skills"
+                name: "skills"
+                widget: "list"
+                field: { label: "Skill", name: "skill", widget: "string" }
