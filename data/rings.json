@@ -1,10 +1,12 @@
 {
   "items": [
     {
-      "id": "独目炎魔",
-      "bossId": "dmym",
+      "id": "雪帝",
+      "bossId": "xuedi",
       "attributes": [],
-      "skills": []
+      "skills": [],
+      "image": "/assets/uploads/xuedi.png",
+      "years": 1000000
     }
   ]
 }
